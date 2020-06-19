@@ -1,27 +1,26 @@
 package com.spring.stock.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String user;
+
+    private String name;
 
     public User (){
     }
 
-    public User(Long id, String user) {
+    public User(Long id, String name) {
         this.id = id;
-        this.user = user;
+        this.name = name;
     }
 
     public Long getId() {
@@ -33,19 +32,19 @@ public class User implements Serializable {
     }
 
     public String getUser() {
-        return user;
+        return name;
     }
 
     public void setUser(String user) {
-        this.user = user;
+        this.name = user;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id);
+        User name = (User) o;
+        return Objects.equals(id, name.id);
     }
 
     @Override
